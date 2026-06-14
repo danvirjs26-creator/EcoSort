@@ -1,0 +1,29 @@
+# API Configuration (contains sensitive keys)
+api-config.js
+
+# Node modules (if using npm in future)
+node_modules/
+
+# Environment files
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build files
+dist/
+build/
+
+# Made with Bob

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSort AI - Intelligent Waste Classification</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="50" height="50" viewBox="0 0 50 50">
+                    <circle cx="25" cy="25" r="20" fill="#4CAF50"/>
+                    <path d="M25 10 L25 40 M15 25 L35 25" stroke="white" stroke-width="3"/>
+                </svg>
+            </div>
+            <h1>EcoSort AI</h1>
+            <p class="subtitle">Intelligent Sustainability Assistant</p>
+            <div id="apiStatus" class="api-status" style="display: none;">
+                <span class="status-indicator"></span>
+                <span class="status-text"></span>
+            </div>
+        </header>
+
+        <main>
+            <!-- Mode Selector -->
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="classify">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3h18v18H3z"></path>
+                        <path d="M9 9h6v6H9z"></path>
+                    </svg>
+                    Classify Waste
+                </button>
+                <button class="mode-btn" data-mode="chat">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Ask AI Assistant
+                </button>
+            </div>
+
+            <!-- Classification Mode -->
+            <div id="classifyMode" class="mode-content active">
+            <div class="input-section">
+                <label for="wasteInput">Enter waste item to classify:</label>
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="wasteInput" 
+                        placeholder="e.g., plastic bottle, banana peel, old phone..."
+                        autocomplete="off"
+                    >
+                    <button id="classifyBtn" class="btn-primary">
+                        <span class="btn-text">Classify</span>
+                        <span class="btn-loader" style="display: none;">
+                            <svg class="spinner" viewBox="0 0 50 50">
+                                <circle cx="25" cy="25" r="20" fill="none" stroke="white" stroke-width="5"></circle>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <div class="quick-examples">
+                    <span>Quick examples:</span>
+                    <button class="example-btn" data-item="plastic bottle">Plastic Bottle</button>
+                    <button class="example-btn" data-item="used battery">Used Battery</button>
+                    <button class="example-btn" data-item="banana peel">Banana Peel</button>
+                    <button class="example-btn" data-item="old smartphone">Old Smartphone</button>
+                </div>
+            </div>
+
+            <div id="resultSection" class="result-section" style="display: none;">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h2 id="itemName"></h2>
+                        <span id="categoryBadge" class="category-badge"></span>
+                    </div>
+                    
+                    <div class="result-content">
+                        <div class="info-block">
+                            <div class="info-icon">🗑️</div>
+                            <div class="info-details">
+                                <h3>Disposal Method</h3>
+                                <p id="disposalMethod"></p>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="info-icon">🌍</div>
+                            <div class="info-details">
+                                <h3>Environmental Impact</h3>
+                                <p id="environmentalImpact"></p>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="info-icon">💡</div>
+                            <div class="info-details">
+                                <h3>Sustainability Tip</h3>
+                                <p id="sustainabilityTip"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="classifyAnother" class="btn-secondary">Classify Another Item</button>
+                </div>
+            </div>
+
+            <div id="errorSection" class="error-section" style="display: none;">
+                <div class="error-card">
+                    <div class="error-icon">⚠️</div>
+                    <h3>Classification Error</h3>
+                    <p id="errorMessage"></p>
+                    <button id="tryAgain" class="btn-secondary">Try Again</button>
+                </div>
+            </div>
+            </div>
+
+            <!-- Chat Mode -->
+            <div id="chatMode" class="mode-content">
+                <div class="chat-container">
+                    <div class="chat-welcome">
+                        <h2>💬 Ask EcoSort AI</h2>
+                        <p>Get instant answers about waste management, recycling, composting, and sustainability!</p>
+                    </div>
+
+                    <div id="chatMessagesMain" class="chat-messages-main">
+                        <div class="chat-message bot-message">
+                            <div class="message-avatar">🌱</div>
+                            <div class="message-content">
+                                <p>Hello! I'm your EcoSort AI assistant. Ask me anything about:</p>
+                                <ul>
+                                    <li>♻️ Recycling guidelines</li>
+                                    <li>🌿 Composting tips</li>
+                                    <li>⚠️ Hazardous waste disposal</li>
+                                    <li>🌍 Environmental impact</li>
+                                    <li>💡 Sustainability practices</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-suggestions-main">
+                        <button class="suggestion-btn-main" data-question="How do I start composting at home?">🌿 Start composting</button>
+                        <button class="suggestion-btn-main" data-question="What plastics can be recycled?">♻️ Recyclable plastics</button>
+                        <button class="suggestion-btn-main" data-question="How to dispose of batteries safely?">🔋 Battery disposal</button>
+                        <button class="suggestion-btn-main" data-question="Why is recycling important?">🌍 Why recycle?</button>
+                    </div>
+
+                    <div class="chat-input-main-container">
+                        <input
+                            type="text"
+                            id="chatInputMain"
+                            class="chat-input-main"
+                            placeholder="Ask about waste management, recycling, sustainability..."
+                            autocomplete="off"
+                        >
+                        <button id="chatSendMain" class="chat-send-main">
+                            <span class="btn-text">Send</span>
+                            <span class="btn-loader" style="display: none;">
+                                <svg class="spinner" viewBox="0 0 50 50">
+                                    <circle cx="25" cy="25" r="20" fill="none" stroke="white" stroke-width="5"></circle>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="itemsClassified">0</span>
+                    <span class="stat-label">Items Classified</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Categories</span>
+                </div>
+            </div>
+            <p class="footer-text">Powered by AI • Helping create a sustainable future</p>
+        </footer>
+
+    </div>
+
+    <!-- Optional: Load API configuration if file exists -->
+    <script src="api-config.js" onerror="console.log('API config not found, using offline mode')"></script>
+    <script src="js/config.js"></script>
+    <script src="js/granite-api.js"></script>
+    <script src="js/chat-main.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
