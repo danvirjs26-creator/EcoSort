@@ -23,6 +23,7 @@ SDG 13 – Climate Action
 Helps reduce environmental impact through sustainable waste disposal.
 
 How It Works
+
 1.User enters a waste item.
 2.IBM Granite analyzes the input.
 3.The system classifies the waste.
