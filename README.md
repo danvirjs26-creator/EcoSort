@@ -2,13 +2,6 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![IBM Watson](https://img.shields.io/badge/IBM%20Watson-BE95FF?logo=ibm&logoColor=white)
-
 **An intelligent AI-powered sustainability assistant for waste classification and management**
 
 [Demo](#-demo) • [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [API Setup](#-api-setup) • [Contributing](#-contributing)
@@ -143,63 +136,13 @@ const API_CONFIG = {
 
 ---
 
-## 📁 Project Structure
-
-```
-ecowaste-ai/
-├── index.html                  # Main application
-├── api-config.example.js       # API configuration template
-├── api-config.js              # Your API keys (git-ignored)
-├── .gitignore                 # Git ignore rules
-├── SETUP.md                   # Quick setup guide
-├── API-VERIFICATION.md        # API verification guide
-├── css/
-│   └── styles.css            # All styling and animations
-├── js/
-│   ├── config.js             # App configuration
-│   ├── granite-api.js        # IBM Granite API integration
-│   ├── chat-main.js          # Chat interface logic
-│   └── app.js                # Main application logic
-└── README.md                 # This file
-```
-
----
-
-## 🎨 Screenshots
-
-### Main Interface
-*Beautiful gradient design with floating animations*
-
-### Classification Tool
-*Instant waste classification with detailed information*
-
-### AI Chat Assistant
-*Natural conversation about sustainability*
-
-### Mobile Responsive
-*Works perfectly on all devices*
-
----
-
-## 🛠️ Technologies Used
-
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **AI**: IBM Granite API (optional)
 - **Storage**: LocalStorage for statistics
 - **Design**: Custom CSS with animations
 - **Architecture**: Modular JavaScript classes
 
----
-
-## 🌟 Key Highlights
-
-✅ **No Dependencies** - Pure vanilla JavaScript  
-✅ **Offline First** - Works without internet  
-✅ **AI Optional** - Great with or without API  
-✅ **Modern UI** - Attractive animations and effects  
-✅ **Responsive** - Mobile-friendly design  
-✅ **Educational** - Learn about sustainability  
-✅ **Open Source** - Free to use and modify  
+-
 
 ---
 
@@ -219,72 +162,7 @@ ecowaste-ai/
 4. **Visual Feedback**: Shows which mode is responding
 5. **Comprehensive**: Covers all sustainability topics
 
----
 
-## 🤝 Contributing
-
-Contributions are welcome! Here's how:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Areas for Contribution
-- 🌍 Add more waste items to database
-- 🎨 Improve UI/UX design
-- 🌐 Add multi-language support
-- 📱 Create mobile app version
-- 🧪 Write tests
-- 📚 Improve documentation
-- 🔌 Add more AI integrations
-
----
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- Inspired by the need for better waste management education
-- IBM Watson for AI capabilities
-- The open-source community
-- Everyone working towards a sustainable future
-
----
-
-## 📞 Support & Contact
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/ecowaste-ai/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/ecowaste-ai/discussions)
-- **Email**: your.email@example.com
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Image recognition for waste items
-- [ ] Integration with local waste services
-- [ ] Gamification and achievements
-- [ ] Community contributions
-- [ ] Mobile app (iOS/Android)
-- [ ] Multi-language support
-- [ ] API for third-party integrations
-- [ ] Advanced analytics dashboard
-
----
-
-## 📊 Stats
-
-![GitHub stars](https://img.shields.io/github/stars/yourusername/ecowaste-ai?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/ecowaste-ai?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/yourusername/ecowaste-ai?style=social)
-
----
 
 <div align="center">
 
